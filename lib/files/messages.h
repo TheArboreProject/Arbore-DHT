@@ -38,6 +38,12 @@ public:
 
 enum
 {
+	ARBORE_CHUNK_REQUEST_KEY
+};
+extern PacketType ArboreChunkRequestType;
+
+enum
+{
 	ARBORE_CHUNK_SEND_CHUNK
 };
 extern PacketType ArboreChunkSendType;

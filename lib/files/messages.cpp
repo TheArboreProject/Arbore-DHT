@@ -26,11 +26,19 @@
 #include "messages.h"
 #include <net/packet.h>
 
+class ArboreChunkRequestMessage : public ArboreMessage
+{
+public:
+	void Handle (Arbore&, const Host&, const Packet&)
+	{
+
+	}
+};
 
 class ArboreChunkSendMessage : public ArboreMessage
 {
 public:
-	void Handle (Arbore& arbore, const Host& host, const Packet& pckt)
+	void Handle (Arbore&, const Host&, const Packet& pckt)
 	{
 		pf_log[W_FILE] << "Chunk received";
 		FileChunk fc = pckt.GetArg<FileChunk>(ARBORE_CHUNK_SEND_CHUNK);
@@ -38,5 +46,7 @@ public:
 	}
 };
 
-PacketType   ArboreChunkSendType(ARBORE_CHUNK_SEND,   new ArboreChunkSendMessage,   Packet::REQUESTACK, "SEND CHUNK",    /* ARBORE_CHUNK_SEND */    T_CHUNK,
-                                                                                                                               T_END);
+PacketType  ArboreChunkRequestType(ARBORE_CHUNK_REQUEST,    new ArboreChunkRequestMessage,   Packet::REQUESTACK, "REQUEST CHUNK",    /* ARBORE_CHUNK_REQUEST_KEY */  T_KEY,
+                                                                                                                                                                     T_END);
+PacketType     ArboreChunkSendType(ARBORE_CHUNK_SEND,       new ArboreChunkSendMessage,      Packet::REQUESTACK, "SEND CHUNK",       /* ARBORE_CHUNK_SEND */         T_CHUNK,
+                                                                                                                                                                     T_END);
