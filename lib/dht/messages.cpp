@@ -149,7 +149,8 @@ public:
 			return;
 		}
 
-		if(dht.GetChimera()->ClosestTo(k))
+		pf_log[W_DHT] << "Data not in cache, try to relay to a closest host.";
+		if(!dht.GetChimera()->Route(pckt))
 		{
 			pf_log[W_DHT] << "I'm the owner and the key is unknow, answer with GET_NACK.";
 			Packet get_nack(DHTGetNAckType, dht.GetMe(), host.GetKey());
@@ -158,10 +159,7 @@ public:
 				pf_log[W_DHT] << "Send get NACK message failed!";
 			return;
 		}
-
-		pf_log[W_DHT] << "Data not in cache, relay to a closest host.";
-		if(!dht.GetChimera()->Route(pckt))
-			pf_log[W_DHT] << "Failed to relay.";
+		pf_log[W_DHT] << "GET relayed.";
 	}
 };
 

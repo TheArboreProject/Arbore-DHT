@@ -141,18 +141,16 @@ bool DHT::RequestData(const Key& id) const
 		return false;
 	}
 
-	if(chimera_->ClosestTo(id))
-	{
-		pf_log[W_DHT] << "I'm the owner of the data, and no data is present.";
-		return false;
-	}
-
 	/* Send a Get packet to the owner of the key */
 	Packet pckt(DHTGetType, me_, id);
 	pckt.SetArg(DHT_GET_KEY, id);
 
 	if(!chimera_->Route(pckt))
-		pf_log[W_DHT] << "Failed to send a request data message.";
+	{
+		pf_log[W_DHT] << "I'm the owner of the data, and no data is present.";
+		return false;
+	}
+
 	return true;
 }
 
