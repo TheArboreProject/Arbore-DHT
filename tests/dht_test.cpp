@@ -67,31 +67,31 @@ int main(int argc, char** argv)
 
 		switch(command_str[0])
 		{
-			case 's':
+			case 's': /* Storage */
 			case 'S':
 				pf_log[W_DHT] << dht->GetStorage()->GetStr();
 				break;
-			case 'l':
+			case 'l': /* Leafset */
 			case 'L':
 				pf_log[W_DHT] << dht->GetChimera()->GetRouting()->GetLeafset()->GetStr();
 				break;
-			case 'r':
+			case 'r': /* Routing table */
 			case 'R':
 				pf_log[W_DHT] << dht->GetChimera()->GetRouting()->GetRoutingTable()->GetStr();
 				break;
-			case 'p':
+			case 'p': /* Publish */
 			case 'P':
 				k.MakeHash(s);
 				pf_log[W_DHT] << "Publish " << s << " with key " << k;
 				dht->Publish(k, s);
 				break;
-			case 'u':
+			case 'u': /* Unpublish */
 			case 'U':
 				k = stringtok(s, " ");
 				pf_log[W_DHT] << "Unublish " << s << " with key " << k;
 				dht->Unpublish(k, s);
 				break;
-			case 'g':
+			case 'g': /* GET */
 			case 'G':
 				k = s;
 				pf_log[W_DHT] << "Request data with key " << k;
@@ -99,7 +99,7 @@ int main(int argc, char** argv)
 					if(dht->GetStorage()->hasKey(k))
 						pf_log[W_DHT] << dht->GetStorage()->getInfo(k)->GetStr();
 				break;
-			case 'q':
+			case 'q': /* Quit */
 			case 'Q':
 				return EXIT_SUCCESS;
 			default:
