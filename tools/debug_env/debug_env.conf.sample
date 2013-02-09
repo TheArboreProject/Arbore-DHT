@@ -1,9 +1,0 @@
-#!/bin/bash
-#PF=peerfuse-net
-#PF=peerfuse-lan
-
-TOOL=gdb
-#TOOL=valgrind
-#TOOL=helgrind
-
-CLEAN_AFTER_EXIT=yes
