@@ -63,8 +63,8 @@ pf_addr::pf_addr(const char* p)
 	key = Key(array);
 }
 
-pf_addr::pf_addr(std::string hostname, uint16_t port)
-	: port(port), key(Key())
+pf_addr::pf_addr(std::string hostname, uint16_t _port)
+	: port(_port), key(Key())
 {
 	int is_addr;
 	struct hostent *he;
