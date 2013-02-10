@@ -197,11 +197,11 @@ void Key::MakeHash (std::string s)
 	pf_log[W_DEBUG] << "Key::MakeHash: HASH(" << s << ") = [" << *this << "]";
 }
 
-void Key::MakeHash (const char *s, size_t size)
+void Key::MakeHash (const char *s, size_t str_size)
 {
 	unsigned char *digest = new unsigned char[SHA_DIGEST_LENGTH];
 
-	SHA1((const unsigned char*) s, size, digest);
+	SHA1((const unsigned char*) s, str_size, digest);
 
 	unsigned char *p = digest;
 	for(size_t i = 0; i < Key::nlen; ++i)

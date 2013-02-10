@@ -131,7 +131,7 @@ public:
 	 * @param s hashed string
 	 * @param size size of the string (if this isn't a 0 terminated string).
 	 */
-	void MakeHash (const char *s, size_t size);
+	void MakeHash (const char *s, size_t str_size);
 
 	/** Calculate the distance between this and another key
 	*
