@@ -45,7 +45,7 @@ Key Key::GetRandomKey()
 		key[i] = 0;
 		for(int j = 0; j < 32; j++)
 		{
-			key[i] += (rand()%2) << j;
+			key[i] += (uint32_t) ((rand()%2) << j);
 		}
 	}
 
