@@ -45,7 +45,7 @@ public:
 	void RegisterType(PacketType type);
 
 	/** @return  number of packet types */
-	ssize_t size() const;
+	uint32_t size() const;
 
 	/** @return  the PacketType of the type id */
 	PacketType GetPacketType(uint32_t type) const;

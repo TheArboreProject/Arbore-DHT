@@ -42,7 +42,7 @@ int main(int argc, char** argv)
 		return EXIT_FAILURE;
 	}
 
-	srand(time(NULL));
+	srand((unsigned)time(NULL));
 
 	DHT* dht = new DHT(NULL, StrToTyp<uint16_t>(argv[1]));
 

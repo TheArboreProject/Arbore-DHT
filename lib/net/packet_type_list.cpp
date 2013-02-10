@@ -37,10 +37,10 @@ void PacketTypeList::RegisterType(PacketType type)
 	insert(value_type(type.GetType(), type));
 }
 
-ssize_t PacketTypeList::size() const
+uint32_t PacketTypeList::size() const
 {
 	BlockLockMutex lock(this);
-	return PacketTypeMap::size();
+	return (uint32_t) PacketTypeMap::size();
 }
 
 PacketType PacketTypeList::GetPacketType(uint32_t type) const

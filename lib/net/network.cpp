@@ -30,6 +30,7 @@
 #include <pthread.h>
 #include <sys/socket.h>
 #include <time.h>
+#include <unistd.h>
 
 #include <scheduler/job.h>
 #include <scheduler/scheduler_queue.h>

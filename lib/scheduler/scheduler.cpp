@@ -23,6 +23,7 @@
 
 #include <list>
 #include <algorithm>
+#include <unistd.h>
 
 #include <util/time.h>
 #include <util/pf_log.h>
@@ -78,4 +79,4 @@ void Scheduler::Loop()
 				delete job;
 		}
 	}
-} 
+}

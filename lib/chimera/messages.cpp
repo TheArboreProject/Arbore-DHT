@@ -22,6 +22,7 @@
  * written by CURRENT Lab, UCSB.
  *
  */
+#include <unistd.h>
 
 #include <util/pf_log.h>
 #include <util/time.h>

@@ -40,7 +40,7 @@ int main(int argc, char** argv)
 		return EXIT_FAILURE;
 	}
 
-	srand(time(NULL));
+	srand((unsigned)time(NULL));
 
 	Key me(StrToTyp<uint32_t>(argv[1]));
 
